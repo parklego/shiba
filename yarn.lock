@@ -9377,6 +9377,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-animated-stopwatch-timer@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "react-native-animated-stopwatch-timer@npm:1.3.0"
+  dependencies:
+    lodash.throttle: "npm:^4.1.1"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-reanimated: "*"
+  checksum: 10c0/0cbc45468fc8b86da157a70c8ad7039b0fa0c04008d7f33233329e92e40e9d76a7f2ce6eec0d2c59fe642753a9e73fbe33bf09c6457f01f2b468881688add0e4
+  languageName: node
+  linkType: hard
+
 "react-native-gesture-handler@npm:~2.16.1":
   version: 2.16.2
   resolution: "react-native-gesture-handler@npm:2.16.2"
@@ -10199,6 +10212,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-native: "npm:0.74.5"
+    react-native-animated-stopwatch-timer: "npm:^1.3.0"
     react-native-gesture-handler: "npm:~2.16.1"
     react-native-reanimated: "npm:~3.10.1"
     react-native-safe-area-context: "npm:4.10.5"
