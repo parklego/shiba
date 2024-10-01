@@ -7,27 +7,57 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
+        // tabBarStyle: {
+        //   position: "absolute",
+        //   bottom: 25,
+        //   left: 15,
+        //   right: 15,
+        //   elevation: 0,
+        //   borderRadius: 15,
+        //   paddingBottom: 5,
+        //   paddingTop: 5,
+        // },
+        // tabBarItemStyle: {
+        //   padding: 5,
+        // },
+
+        // tabBarLabelStyle: {
+        //   fontSize: 12,
+        // },
+        tabBarLabelPosition: "below-icon",
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "스탑워치",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "home" : "home-outline"}
+              name={focused ? "time" : "time-outline"}
               color={color}
             />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="calendar"
         options={{
-          title: "Explore",
+          title: "캘린더",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
+              name={focused ? "calendar" : "calendar-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="setting"
+        options={{
+          title: "설정",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "settings" : "settings-outline"}
               color={color}
             />
           ),
