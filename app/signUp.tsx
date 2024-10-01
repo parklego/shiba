@@ -1,7 +1,7 @@
 import Input from "@/components/input/Input";
 import SocialButton from "@/components/socialButton/SocialButton";
 import Title from "@/components/title/Title";
-import { router, Stack, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -9,11 +9,27 @@ export default function SignUpScreen() {
   const router = useRouter();
 
   const handleMoveToLoginPage = () => {
-    router.replace("/");
+    Alert.alert(
+      "뒤로가기",
+      "입력된 정보는 저장되지 않습니다. \n 그래도 돌아가시겠습니까?",
+      [
+        {
+          text: "취소",
+        },
+        {
+          text: "확인",
+          onPress: () => router.replace("/"),
+        },
+      ]
+    );
   };
   const handleSignup = () => {
-    Alert.alert("회원가입 완료");
-    handleMoveToLoginPage();
+    Alert.alert("회원가입 성공", "로그인 페이지로 이동합니다.", [
+      {
+        text: "확인",
+        onPress: () => router.replace("/"),
+      },
+    ]);
   };
 
   return (
@@ -24,13 +40,12 @@ export default function SignUpScreen() {
         <Input placeholder="닉네임" />
         <Input placeholder="비밀번호" password />
         <Input placeholder="비밀번호 확인" password />
-        <Input placeholder="이메일" password />
-        <Input placeholder="전화번호" password />
+        <Input placeholder="이메일" />
         <View className="mt-8">
           <SocialButton type="common" title="회원가입" onPress={handleSignup} />
         </View>
         <Pressable style={styles.button} onPress={handleMoveToLoginPage}>
-          <Text className="text-blue-500">되돌아가기</Text>
+          <Text className="text-blue-500">뒤로가기</Text>
         </Pressable>
       </View>
     </SafeAreaView>

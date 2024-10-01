@@ -9,7 +9,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function HomeScreen() {
   const router = useRouter();
 
-  const handlePress = () => {
+  const handleSignup = () => {
     router.replace("/signUp");
   };
 
@@ -17,9 +17,21 @@ export default function HomeScreen() {
     Alert.alert("로그인", "준비중입니다.", [
       {
         text: "확인",
-        // onPress: () => console.log("확인"),
       },
     ]);
+  };
+
+  const handleSocialLogin = () => {
+    Alert.alert(
+      "소셜 로그인",
+      "준비중입니다. \n 일반 회원가입 페이지로 이동합니다.",
+      [
+        {
+          text: "확인",
+          onPress: () => handleSignup(),
+        },
+      ]
+    );
   };
   return (
     <>
@@ -40,12 +52,12 @@ export default function HomeScreen() {
             <SocialButton
               type="google"
               title="구글로 시작하기"
-              onPress={handleLogin}
+              onPress={handleSocialLogin}
             />
             <SocialButton
               type="kakao"
               title="카카오로 시작하기"
-              onPress={handleLogin}
+              onPress={handleSocialLogin}
             />
           </View>
           <View className="mt-4">
@@ -53,7 +65,7 @@ export default function HomeScreen() {
               <Text className="mr-2 text-gray-400">
                 아직 회원이 아니신가요?
               </Text>
-              <Pressable onPress={handlePress}>
+              <Pressable onPress={handleSignup}>
                 <Text className="text-blue-500">회원가입</Text>
               </Pressable>
             </View>
