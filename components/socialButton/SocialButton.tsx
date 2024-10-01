@@ -1,3 +1,4 @@
+import { checkBrand } from "@/utils";
 import React from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
@@ -9,26 +10,7 @@ interface SocialButtonProps {
   onPress: () => void;
 }
 
-const checkBrand = (brand: string) => {
-  switch (brand) {
-    case "common":
-      return "#67e574";
-    case "kakao":
-      return "#FEE500";
-    case "google":
-      return "#ffffff";
-    default:
-      return "#7ee0f4";
-  }
-};
-
-const SocialButton = ({
-  type,
-  icon,
-  title,
-  onPress,
-  disabled,
-}: SocialButtonProps) => {
+const SocialButton = ({ type, icon, title, onPress }: SocialButtonProps) => {
   return (
     <Pressable
       style={{
@@ -38,6 +20,7 @@ const SocialButton = ({
         width: "100%",
         height: 50,
         backgroundColor: checkBrand(type),
+        borderWidth: 1,
         borderRadius: 20,
       }}
       onPress={onPress}
