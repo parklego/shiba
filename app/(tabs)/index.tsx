@@ -6,11 +6,11 @@ import {
   View,
   Text,
 } from "react-native";
-
 import { useRef, useState } from "react";
 import StopwatchTimer, {
   StopwatchTimerMethods,
 } from "react-native-animated-stopwatch-timer";
+import Category from "@/components/category/Category";
 
 export default function StopWatchScreen() {
   const stopwatchTimerRef = useRef<StopwatchTimerMethods>(null);
@@ -52,6 +52,7 @@ export default function StopWatchScreen() {
   return (
     <SafeAreaView>
       <View className="flex items-center justify-around w-full h-full p-5">
+        <Category />
         <StopwatchTimer
           ref={stopwatchTimerRef}
           trailingZeros={0}
@@ -81,7 +82,6 @@ export default function StopWatchScreen() {
           >
             <Text className="text-xl">리셋하기</Text>
           </Pressable>
-
           <Pressable
             onPress={save}
             className="flex items-center justify-center w-full h-16 bg-blue-500 rounded-full"
