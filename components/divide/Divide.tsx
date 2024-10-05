@@ -30,17 +30,17 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     height: 1,
-    backgroundColor: "gray",
+    backgroundColor: "silver",
   },
   fullLine: {
     flex: 1,
     height: 1,
-    backgroundColor: "gray",
+    backgroundColor: "silver",
   },
   text: {
     paddingHorizontal: 15,
     fontSize: 16,
-    color: "gray",
+    color: "silver",
   },
 });
 
