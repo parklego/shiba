@@ -2,7 +2,6 @@ import Button from "@/components/Button.tsx/Button";
 import Divide from "@/components/divide/Divide";
 import Input from "@/components/input/Input";
 import SocialButton from "@/components/socialButton/SocialButton";
-import Title from "@/components/title/Title";
 import { useRouter } from "expo-router";
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,8 +9,25 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function HomeScreen() {
   const router = useRouter();
 
+  const handleFindEmail = () => {
+    router.replace("/findEmail");
+  };
+
+  const handleFindPassword = () => {
+    router.replace("/findPassword");
+  };
+
   const handleSignup = () => {
     router.replace("/signUp");
+  };
+
+  const handleLogin = () => {
+    Alert.alert("로그인", "준비중입니다. 임시로 넘깁니다.", [
+      {
+        text: "확인",
+        onPress: () => router.replace("/(tabs)"),
+      },
+    ]);
   };
 
   const handleSocialLogin = () => {
@@ -34,11 +50,29 @@ export default function HomeScreen() {
           <Text style={styles.navigateTitle}>시작해 보세요!</Text>
           <Text style={styles.guideText}>1분 이면 회원가입 가능해요</Text>
         </View>
-        <View className="mt-12">
-          <Button title="이메일로 시작하기" onPress={handleSignup} />
+        <View>
+          <View style={styles.loginContainer}>
+            <Input placeholder="이메일" />
+            <Input placeholder="비밀번호" password />
+            <Button title="로그인" onPress={handleLogin} />
+          </View>
+          <View className="mt-6 mb-8">
+            <View className="flex flex-row items-center justify-evenly">
+              <Pressable onPress={handleFindEmail}>
+                <Text className="text-gray-400">이메일 찾기</Text>
+              </Pressable>
+              <Text className="text-gray-400">|</Text>
+              <Pressable onPress={handleFindPassword}>
+                <Text className="text-gray-400">비밀번호 찾기</Text>
+              </Pressable>
+              <Text className="text-gray-400">|</Text>
+              <Pressable onPress={handleSignup}>
+                <Text className="text-gray-400">회원가입</Text>
+              </Pressable>
+            </View>
+          </View>
         </View>
-
-        <Divide text="또는" />
+        <Divide text="간편 로그인" />
         {/* 소셜 로그인 */}
         <View style={styles.loginContainer}>
           <SocialButton
@@ -76,13 +110,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
   },
+  button: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: 50,
+    borderRadius: 20,
+  },
 
   navigateTitle: {
     fontSize: 36,
     fontWeight: "bold",
   },
   guideText: {
-    marginVertical: 30,
+    marginTop: 15,
+    marginBottom: 40,
     fontSize: 16,
     color: "darkgray",
   },

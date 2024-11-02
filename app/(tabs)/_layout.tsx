@@ -30,6 +30,18 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          title: "마이홈",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "cloud" : "cloud-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="stopwatch"
+        options={{
           title: "스탑워치",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
@@ -52,12 +64,24 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="setting"
+        name="analysis"
         options={{
-          title: "설정",
+          title: "분석",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "settings" : "settings-outline"}
+              name={focused ? "bar-chart" : "bar-chart-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="myPage"
+        options={{
+          title: "마이페이지",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "person" : "person-outline"}
               color={color}
             />
           ),

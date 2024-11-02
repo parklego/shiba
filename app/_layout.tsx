@@ -8,8 +8,8 @@ import { Redirect, Slot, Stack, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import "react-native-reanimated";
-
-import { useColorScheme } from "@/hooks/useColorScheme";
+import { Ionicons } from "@expo/vector-icons";
+import { Pressable, Text } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -18,7 +18,7 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -40,7 +40,21 @@ export default function RootLayout() {
     <ThemeProvider value={DefaultTheme}>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="signUp" options={{ headerShown: false }} />
+        <Stack.Screen name="findEmail" options={{ headerShown: false }} />
+        <Stack.Screen name="findPassword" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="signUp"
+          options={{
+            headerShown: true,
+            title: "회원가입",
+            presentation: "card",
+            headerLeft: () => (
+              <Pressable onPress={() => router.replace("/")}>
+                <Ionicons name="arrow-back" size={24} color="black" />
+              </Pressable>
+            ),
+          }}
+        />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>

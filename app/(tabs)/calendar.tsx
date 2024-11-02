@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import { useWindowDimensions } from "react-native";
 import DayReport from "@/components/report/day/DayReport";
 import MonthReport from "@/components/report/month/MonthReport";
 
